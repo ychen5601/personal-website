@@ -46,6 +46,17 @@ function HomePage() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    toast.success('Resume successfully downloaded!', {
+      style: {
+        border: '1px solid #713200',
+        padding: '16px',
+        color: '#713200',
+      },
+      iconTheme: {
+        primary: '#713200',
+        secondary: '#FFFAEE',
+      },
+    });
   }
 
   const headerStyles = {
@@ -91,6 +102,7 @@ function HomePage() {
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: -12,
+    gap: 0.3,
   }
 
   const iconStyle = {
