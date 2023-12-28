@@ -104,10 +104,10 @@ function HomePage() {
       <div style={profilePhotoAndLogosDiv}>
         <img src={profile_photo} style={profilePhotoStyles}/>
         <div style={iconsDisplay}>
-          <IconButton href="https://github.com/ychen5601">
+          <IconButton href="https://github.com/ychen5601" target="_blank">
             <GitHubIcon style={iconStyle}/>
           </IconButton>
-          <IconButton href="https://www.linkedin.com/in/yu-yang-chen-229115231/">
+          <IconButton href="https://www.linkedin.com/in/yu-yang-chen-229115231/" target="_blank">
             <LinkedInIcon style={iconStyle}/>
           </IconButton>
           <IconButton onClick={handleEmailClick}>
