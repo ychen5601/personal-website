@@ -4,6 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import IconButton from '@mui/material/IconButton';
+import DescriptionIcon from '@mui/icons-material/Description';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -35,6 +36,16 @@ function HomePage() {
         secondary: '#FFFAEE',
       },
     });
+  }
+
+  const handleResumeClick = () => {
+    const pdfUrl = "resume.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 
   const headerStyles = {
@@ -72,12 +83,14 @@ function HomePage() {
   const textBoxDisplay = {
     paddingTop: 128,
     flex: 1,
+    marginRight: 18,
   }
 
   const iconsDisplay = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginLeft: -12,
   }
 
   const iconStyle = {
@@ -112,6 +125,9 @@ function HomePage() {
           </IconButton>
           <IconButton onClick={handleEmailClick}>
             <EmailIcon style={iconStyle}/>
+          </IconButton>
+          <IconButton onClick={handleResumeClick}>
+            <DescriptionIcon style={iconStyle}/>
           </IconButton>
         </div>
       </div>
