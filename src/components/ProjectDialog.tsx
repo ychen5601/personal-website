@@ -7,17 +7,24 @@ type ProjectDialogProps = {
 };
 
 const projectDialogStyle = {
-    backgroundColor: "#8b9a71",
+    backgroundColor: "#45503b",
 };
 
 const headerStyle = {
     fontFamily: "poppins",
+    marginLeft: 16,
+    marginRight: 16,
+    paddingTop: 16,
+    paddingBottom: 16,
+    fontSize: 24,
+    color: "#D3D3D3"
 }
 
 const bodyStyle = {
-    marginLeft: 8,
-    marginRight: 8,
-    paddingBottom: 8,
+    marginLeft: 16,
+    marginRight: 16,
+    paddingBottom: 16,
+    color: "#D3D3D3",
     fontFamily: "poppins",
 }
 
@@ -27,8 +34,9 @@ function ProjectDialog({ open, onClose, project }: ProjectDialogProps) {
           open={open}
           onClose={onClose}
           PaperProps={{style: projectDialogStyle}}
-          fullWidth={true}>
-            <DialogTitle style={headerStyle}>{project.title}</DialogTitle>
+          fullWidth={true}
+          >
+            <DialogContentText style={headerStyle}>{project.title}</DialogContentText>
             <DialogContentText style={bodyStyle}>
               This is a simple description for a project that I've worked on.
               I think that the portfolio website was a great project to work on, as
