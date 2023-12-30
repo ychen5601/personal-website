@@ -81,14 +81,14 @@ function TopNav() {
             >
                 Projects
             </Button>
-            <Button
+            {/* <Button
                 style={ContactStyle}
                 onMouseEnter={handleContactMouseMove}
                 onMouseLeave={handleContactMouseMove}
                 onClick={handleContactClick}
             >
                 Contact
-            </Button>
+            </Button> */}
         </Toolbar>
       </AppBar>
     );

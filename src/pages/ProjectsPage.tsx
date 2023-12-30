@@ -1,16 +1,20 @@
 import ProjectCard from "../components/ProjectCard";
 import projects from "../assets/projectsData";
-import { CardActionArea, Dialog, DialogTitle } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import { useState } from "react";
-import { wait } from "@testing-library/user-event/dist/utils";
+import ProjectDialog from "../components/ProjectDialog";
 
 function ProjectsPage() {
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
+  const [openModalId, setOpenModalId] = useState<number | null>(null);
+
+  const handleOpen = (index: number) => {
+    setOpenModalId(index);
   }
-  const handleClose = () => setOpen(false);
+
+  const handleClose = () => {
+    setOpenModalId(null);
+  }
 
   const viewStyle = {
     display: "flex",
@@ -42,7 +46,7 @@ function ProjectsPage() {
       <div style={cardContainer}>
         {projects.map((project, index) => (
           <div>
-          <CardActionArea style={cardActionStyle} onClick={handleOpen} disableRipple>
+          <CardActionArea style={cardActionStyle} onClick={() => handleOpen(index)} disableRipple>
               <ProjectCard
               key={index}
               title={project.title}
@@ -50,11 +54,11 @@ function ProjectsPage() {
               imageUrl={project.imageUrl}
               githubUrl={project.githubUrl}/>
           </CardActionArea>
-          <Dialog
-          open={open}
-          onClose={handleClose}>
-            <DialogTitle>{project.title}</DialogTitle>
-        </Dialog>
+          {openModalId === index &&
+            <ProjectDialog
+            open={openModalId === index}
+            onClose={handleClose}
+            project={project}/>}
         </div>
         ))}
       </div>
