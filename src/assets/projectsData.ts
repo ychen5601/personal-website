@@ -9,7 +9,7 @@ const projects = [
 
       One of my future goals for this website is to enable compilation of modules in various languages, to be able to demonstrate all of my past projects in real time. However, I haven't gotten to that yet.
 
-      Another goal of mine is MongoDB integration, allowing visitors to comment below my projects and leave constructive feedback on anything related to my work, enabking me to become a better developer. This is currently a work in progress.
+      Another goal of mine is MongoDB integration, allowing visitors to comment below my projects and leave constructive feedback on anything related to my work, enabling me to become a better developer. This is currently a work in progress.
 
       This project was heavily inspired stylistically by my friend Davis' portfolio website, which I will link below as well.`},
     {title: "LangChain JS", 
