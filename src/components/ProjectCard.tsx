@@ -5,13 +5,10 @@ import GitHubLogo from '@mui/icons-material/GitHub';
 
 
 type ProjectCardProps = {
-    title: string;
-    description: string;
-    imageUrl: string;
-    githubUrl: string;
+    project: any,
 };
 
-function ProjectCard({ title, description, imageUrl, githubUrl }: ProjectCardProps) {
+function ProjectCard({ project }: ProjectCardProps) {
 
     const [raised, setRaised] = useState(false);
 
@@ -63,15 +60,15 @@ function ProjectCard({ title, description, imageUrl, githubUrl }: ProjectCardPro
             <div style={imageContainerStyle}>
                 <CardMedia
                     component="img"
-                    image={imageUrl}
-                    alt={title}
+                    image={project.imageUrl}
+                    alt={project.title}
                     style={imageStyle}/>
             </div>
             <header style={headerStyle}>
-                {title}
+                {project.title}
             </header>
             <p style={bodyStyle}>
-                {description}
+                {project.shortDesc}
             </p>
       </Card>
     );

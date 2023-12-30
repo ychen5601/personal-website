@@ -49,10 +49,7 @@ function ProjectsPage() {
           <CardActionArea style={cardActionStyle} onClick={() => handleOpen(index)} disableRipple>
               <ProjectCard
               key={index}
-              title={project.title}
-              description={project.description}
-              imageUrl={project.imageUrl}
-              githubUrl={project.githubUrl}/>
+              project={project}/>
           </CardActionArea>
           {openModalId === index &&
             <ProjectDialog

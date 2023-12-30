@@ -1,4 +1,6 @@
-import { Dialog, DialogTitle, DialogContentText } from "@mui/material";
+import { Dialog, DialogContent, DialogContentText, IconButton } from "@mui/material";
+import React from "react";
+import GithubIcon from "@mui/icons-material/GitHub";
 
 type ProjectDialogProps = {
     open: any;
@@ -6,29 +8,41 @@ type ProjectDialogProps = {
     project: any;
 };
 
-const projectDialogStyle = {
-    backgroundColor: "#45503b",
-};
-
-const headerStyle = {
-    fontFamily: "poppins",
-    marginLeft: 16,
-    marginRight: 16,
-    paddingTop: 16,
-    paddingBottom: 16,
-    fontSize: 24,
-    color: "#D3D3D3"
-}
-
-const bodyStyle = {
-    marginLeft: 16,
-    marginRight: 16,
-    paddingBottom: 16,
-    color: "#D3D3D3",
-    fontFamily: "poppins",
-}
-
 function ProjectDialog({ open, onClose, project }: ProjectDialogProps) {
+
+    const projectDialogStyle = {
+        backgroundColor: "#45503b",
+    };
+    
+    const headerStyle = {
+        fontFamily: "poppins",
+        marginLeft: 16,
+        marginRight: 16,
+        paddingTop: 16,
+        paddingBottom: 16,
+        fontSize: 24,
+        color: "#D3D3D3"
+    };
+    
+    const bodyStyle = {
+        marginLeft: 16,
+        marginRight: 16,
+        display: "flex",
+        color: "#D3D3D3",
+        fontFamily: "poppins",
+    };
+    
+    const iconContainerStyle = {
+        paddingTop: 16,
+        padding: 8,
+        display: "flex",
+        justifyContent: "flex-start",
+    };
+
+    const iconStyle = {
+        color: "#d3d3d3",
+    }
+
     return (
         <Dialog
           open={open}
@@ -38,13 +52,17 @@ function ProjectDialog({ open, onClose, project }: ProjectDialogProps) {
           >
             <DialogContentText style={headerStyle}>{project.title}</DialogContentText>
             <DialogContentText style={bodyStyle}>
-              This is a simple description for a project that I've worked on.
-              I think that the portfolio website was a great project to work on, as
-              it not only demonstrates my proficiency in web development using the
-              React framework, but it is also an effective demonstration of my past
-              achievements, compiled in one simple website for my colleagues and peers
-              to browse.
+              {project.longDesc.split('\n').map((line: string, index: number) => (
+                <React.Fragment key={index}>
+                    {line} <br />
+                </React.Fragment>
+              ))}
             </DialogContentText>
+            <DialogContent style={iconContainerStyle}>
+                <IconButton style={iconStyle} href={project.githubUrl} target="_blank">
+                    <GithubIcon/>
+                </IconButton>
+            </DialogContent>
         </Dialog>
     );
 }
