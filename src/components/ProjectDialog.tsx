@@ -1,6 +1,8 @@
 import { Dialog, DialogContent, DialogContentText, IconButton } from "@mui/material";
 import React from "react";
 import GithubIcon from "@mui/icons-material/GitHub";
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import LinkIcon from '@mui/icons-material/Link';
 
 type ProjectDialogProps = {
     open: any;
@@ -9,6 +11,10 @@ type ProjectDialogProps = {
 };
 
 function ProjectDialog({ open, onClose, project }: ProjectDialogProps) {
+
+    const githubUrlExists = project.githubUrl != null;
+    const youtubeUrlExists = project.youtubeUrl != null;
+    const otherUrlExists = project.otherUrl != null;
 
     const projectDialogStyle = {
         backgroundColor: "#45503b",
@@ -34,6 +40,7 @@ function ProjectDialog({ open, onClose, project }: ProjectDialogProps) {
     
     const iconContainerStyle = {
         paddingTop: 16,
+        height: 36,
         padding: 8,
         display: "flex",
         justifyContent: "flex-start",
@@ -59,9 +66,27 @@ function ProjectDialog({ open, onClose, project }: ProjectDialogProps) {
               ))}
             </DialogContentText>
             <DialogContent style={iconContainerStyle}>
+            {
+                githubUrlExists && 
                 <IconButton style={iconStyle} href={project.githubUrl} target="_blank">
                     <GithubIcon/>
                 </IconButton>
+               
+            }
+            {
+                youtubeUrlExists && 
+                <IconButton style={iconStyle} href={project.youtubeUrl} target="_blank">
+                    <YouTubeIcon/>
+                </IconButton>
+               
+            }
+            {
+                otherUrlExists && 
+                <IconButton style={iconStyle} href={project.otherUrl} target="_blank">
+                    <LinkIcon/>
+                </IconButton>
+               
+            }
             </DialogContent>
         </Dialog>
     );

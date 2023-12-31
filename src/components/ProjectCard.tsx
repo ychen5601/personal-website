@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { CardMedia, IconButton, CardActionArea } from '@mui/material';
 import Card from '@mui/material/Card';
-import GitHubLogo from '@mui/icons-material/GitHub';
 
 
 type ProjectCardProps = {
