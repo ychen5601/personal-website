@@ -18,6 +18,7 @@ const projects = [
     
     I am motivated to create and maintain this website not only to polish my skills in web development, React, and TypeScript, but to also compile all of my past projects and achievements in one place, for my peers and colleagues to view and explore.
 
+
     I'm currently working on an 'about me' page, which provides visitors with a more holistic picture of me as a person, via my hobbies and interests, past experience, and other related skillsets.
 
     Another goal of mine is to integrate MongoDB into my website, allowing visitors to comment below my projects and leave constructive feedback on anything related to my work, enabling me to become a more well-rounded developer.
