@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function TopNav() {
 
     let navigate = useNavigate();
+    let location = useLocation();
 
     const appBarStyle = {
         backgroundColor: '#ced2ba',
@@ -34,11 +35,11 @@ function TopNav() {
 
     const [isHomeHovered, setIsHomeHovered] = useState(false);
     const [isProjectsHovered, setIsProjectsHovered] = useState(false);
-    const [isContactHovered, setIsContactHovered] = useState(false);
+    const [isAboutHovered, setIsAboutHovered] = useState(false);
 
     const homeStyle = isHomeHovered ? hoverStyle : buttonStyle;
     const projectsStyle = isProjectsHovered ? hoverStyle : buttonStyle;
-    const ContactStyle = isContactHovered ? hoverStyle : buttonStyle;
+    const AboutStyle = isAboutHovered ? hoverStyle : buttonStyle;
 
     const handleHomeMouseMove = () => {
         setIsHomeHovered(!isHomeHovered);
@@ -55,9 +56,11 @@ function TopNav() {
     const handleProjectsClick = () => {
         navigate('/projects');}
 
-    const handleContactMouseMove = () => {
-        setIsContactHovered(!isContactHovered);
+    const handleAboutMouseMove = () => {
+        setIsAboutHovered(!isAboutHovered);
     }
+
+    const handleAboutClick = () => {navigate('/about');}
 
     const handleContactClick = () => {navigate('/contact');}
     
@@ -81,14 +84,14 @@ function TopNav() {
             >
                 Projects
             </Button>
-            {/* <Button
-                style={ContactStyle}
-                onMouseEnter={handleContactMouseMove}
-                onMouseLeave={handleContactMouseMove}
-                onClick={handleContactClick}
+            <Button
+                style={AboutStyle}
+                onMouseEnter={handleAboutMouseMove}
+                onMouseLeave={handleAboutMouseMove}
+                onClick={handleAboutClick}
             >
-                Contact
-            </Button> */}
+                About
+            </Button>
         </Toolbar>
       </AppBar>
     );
