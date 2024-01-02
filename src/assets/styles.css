@@ -3,6 +3,17 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color:#ced2ba;
-    color: 'rgb(53, 71, 43)';
     margin: 0px;
+}
+
+header {
+    font-family: 'Poppins', sans-serif;
+    color: #415B41;
+    font-size: 36px;
+}
+
+p {
+    color: #415B41;
+    margin-left: 10px;
+    font-size: 24px;
 }

@@ -11,13 +11,20 @@ function TopNav() {
 
     const appBarStyle = {
         backgroundColor: '#ced2ba',
+        border: 0,
+    };
+
+    const fixedAppBarStyle = {
+        backgroundColor: 'rgba(0, 0, 0, 0)',
         borderBottom: 'none',
         border: 0,
+        position: 'fixed',
+        zIndex: 999,
     };
 
     const buttonStyle = {
         color: 'rgb(53, 71, 43)',
-        backgroundColor:'#ced2ba',
+        backgroundColor:'rgba(0, 0, 0, 0)',
         padding: 25,
     };
 
@@ -66,7 +73,7 @@ function TopNav() {
     
 
     return (
-      <AppBar position='static' style={appBarStyle} elevation={0}>
+      <AppBar position='static' style={location.pathname == "/about" ? fixedAppBarStyle : appBarStyle} elevation={0}>
         <Toolbar style={centerToolbarStyle}>
             <Button 
                 style={homeStyle}
