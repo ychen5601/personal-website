@@ -1,8 +1,8 @@
 import ReactPageScroller from 'react-page-scroller';
 import about from '../assets/about';
 import React from 'react';
-import codePhoto from '../assets/code-photo.jpeg';
 import teamPlayer from '../assets/teamPlayer';
+import athlete from '../assets/athlete';
 
 function AboutPage() {
 
@@ -54,7 +54,6 @@ function AboutPage() {
                             </React.Fragment>
                             ))}
                         </body>
-                        <img src={codePhoto} style={imageStyles}/>
                     </div>
                 </div>
             </div>
@@ -72,8 +71,20 @@ function AboutPage() {
                     </div>
                 </div>
             </div>
-            <div style={pageStyle}>page 3</div>
-            <div style={pageStyle}>page 4</div>
+            <div style={pageStyle}>
+                <div style={contentStyle}>
+                    <header>{athlete.title}</header>
+                    <div style={bodyAndImgContainer}>
+                        <body style={bodyStyle}>
+                            {athlete.description.split('\n').map((line: string, index: number) => (
+                            <React.Fragment key={index}>
+                                {line} <br />
+                            </React.Fragment>
+                            ))}
+                        </body>
+                    </div>
+                </div>
+            </div>
         </ReactPageScroller>
     );
 }
