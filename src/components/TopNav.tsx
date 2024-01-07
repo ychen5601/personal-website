@@ -2,62 +2,51 @@ import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.png';
-import LanguageIcon from '@mui/icons-material/Language';
-import { Language } from '@mui/icons-material';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function TopNav() {
 
     let navigate = useNavigate();
     let location = useLocation();
 
-    const logoStyle = {
-        height: 82,
-        width: 71,
-    }
-
     const appBarStyle = {
-        marginTop: 24,
+        backgroundColor: '#ced2ba',
+        border: 0,
+    };
+
+    const fixedAppBarStyle = {
+        backgroundColor: 'rgba(0, 0, 0, 0)',
         borderBottom: 'none',
         border: 0,
-        display: "flex",
-        backgroundColor: "white",
+        position: 'fixed',
+        zIndex: 999,
     };
 
     const buttonStyle = {
         color: 'rgb(53, 71, 43)',
+        backgroundColor:'rgba(0, 0, 0, 0)',
         padding: 25,
-        backgroundColor: "white",
-        fontSize: 20,
-        textTransform: 'none' as 'none',
     };
 
     const hoverStyle = {
+        color: 'black',
+        backgroundColor:'#ced2ba',
         padding: 25,
-        backgroundColor: "white",
-        color: "rgb(0, 158, 164)",
-        textDecoration: "underline",
-        textUnderlineOffset: 5,
-        fontSize: 20,
-        textTransform: 'none' as 'none',
     };
 
     const centerToolbarStyle = {
         display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
     };
 
     const [isHomeHovered, setIsHomeHovered] = useState(false);
     const [isProjectsHovered, setIsProjectsHovered] = useState(false);
-    const [isContactHovered, setIsContactHovered] = useState(false);
-    const [isCareersHovered, setIsCareersHovered] = useState(false);
-    const [isLanguageHovered, setIsLanguageHovered] = useState(false);
+    const [isAboutHovered, setIsAboutHovered] = useState(false);
 
     const homeStyle = isHomeHovered ? hoverStyle : buttonStyle;
     const projectsStyle = isProjectsHovered ? hoverStyle : buttonStyle;
-    const ContactStyle = isContactHovered ? hoverStyle : buttonStyle;
-    const careerStyle = isCareersHovered ? hoverStyle : buttonStyle
+    const AboutStyle = isAboutHovered ? hoverStyle : buttonStyle;
 
     const handleHomeMouseMove = () => {
         setIsHomeHovered(!isHomeHovered);
@@ -78,77 +67,38 @@ function TopNav() {
         setIsAboutHovered(!isAboutHovered);
     }
 
-    const handleCareerMouseMove = () => {
-        setIsCareersHovered(!isCareersHovered);
-    }
+    const handleAboutClick = () => {navigate('/about');}
 
     const handleContactClick = () => {navigate('/contact');}
-
-    const handleCareerClick = () => {navigate("/career");}
-
-    const languageIconStyle = {
-        color:"black",
-        marginRight: 8,
-        paddingLeft: 180
-    }
-
-    const languageIconHoverStyle = {
-        color: "rgb(0, 158, 164)",
-        marginRight: 8,
-        paddingLeft: 180,
-    }
-
-    const handleLanguageMouseMove = () => {
-        setIsLanguageHovered(!isLanguageHovered);
-    }
-
-    const languageStyle = isLanguageHovered ? languageIconHoverStyle : languageIconStyle;
     
 
     return (
-      <AppBar position='static' style={appBarStyle} elevation={0}>
-        <Toolbar style={{...centerToolbarStyle, textTransform: 'none' }}>
-            <img src={logo} style={logoStyle}/>
+      <AppBar position='static' style={location.pathname == "/about" ? fixedAppBarStyle : appBarStyle} elevation={0}>
+        <Toolbar style={centerToolbarStyle}>
             <Button 
                 style={homeStyle}
                 onMouseEnter={handleHomeMouseMove}
                 onMouseLeave={handleHomeMouseMove}
                 onClick={handleHomeClick}
-                disableTouchRipple
             >
-                Company
+                Home
             </Button>
             <Button 
                 style={projectsStyle}
                 onMouseEnter={handleProjectsMouseMove}
                 onMouseLeave={handleProjectsMouseMove}
                 onClick={handleProjectsClick}
-                disableTouchRipple
             >
-                Product
+                Projects
             </Button>
             <Button
-                style={ContactStyle}
-                onMouseEnter={handleContactMouseMove}
-                onMouseLeave={handleContactMouseMove}
-                onClick={handleCareerClick}
-                disableTouchRipple
+                style={AboutStyle}
+                onMouseEnter={handleAboutMouseMove}
+                onMouseLeave={handleAboutMouseMove}
+                onClick={handleAboutClick}
             >
-                Careers
+                About
             </Button>
-            <Button
-                style={careerStyle}
-                onMouseEnter={handleCareerMouseMove}
-                onMouseLeave={handleCareerMouseMove}
-                onClick={handleContactClick}
-                disableTouchRipple
-            >
-                Contact
-            </Button>
-            <LanguageIcon
-                style={languageStyle}
-                onMouseEnter={handleLanguageMouseMove}
-                onMouseLeave={handleLanguageMouseMove}/>
         </Toolbar>
       </AppBar>
     );
