@@ -1,8 +1,9 @@
-import ReactPageScroller from 'react-page-scroller';
 import about from '../assets/about';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import teamPlayer from '../assets/teamPlayer';
 import athlete from '../assets/athlete';
+import '../assets/styles.css';
+
 
 function AboutPage() {
 
@@ -13,12 +14,10 @@ function AboutPage() {
     const pageStyle = {
         marginRight: "30vw",
         marginLeft: "30vw",
-        height: "100vh",
-        paddingTop: 76,
+        marginTop: 76,
     };
 
     const contentStyle = {
-        
         alignItems: "center",
         paddingTop: "19%",
         marginLeft: 8,
@@ -41,53 +40,53 @@ function AboutPage() {
         width: 140,
         marginRight: 8,
         marginTop: 24,
-      }
+    }
 
     return (
-        <ReactPageScroller>
-            <div style={pageStyle}>
+        <div className="container">
+            <div style={pageStyle} className="section">
                 <div style={contentStyle}>
                     <header>{about.title}</header>
                     <div style={bodyAndImgContainer}>
-                        <body style={bodyStyle}>
+                        <div style={bodyStyle}>
                             {about.text.split('\n').map((line: string, index: number) => (
                             <React.Fragment key={index}>
                                 {line} <br />
                             </React.Fragment>
                             ))}
-                        </body>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div style={pageStyle}>
+            <div style={pageStyle} className="section">
                 <div style={contentStyle}>
                     <header>{teamPlayer.title}</header>
                     <div style={bodyAndImgContainer}>
-                        <body style={bodyStyle}>
+                        <div style={bodyStyle}>
                             {teamPlayer.text.split('\n').map((line: string, index: number) => (
                             <React.Fragment key={index}>
                                 {line} <br />
                             </React.Fragment>
                             ))}
-                        </body>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div style={pageStyle}>
+            <div style={pageStyle} className="section">
                 <div style={contentStyle}>
                     <header>{athlete.title}</header>
                     <div style={bodyAndImgContainer}>
-                        <body style={bodyStyle}>
+                        <div style={bodyStyle}>
                             {athlete.description.split('\n').map((line: string, index: number) => (
                             <React.Fragment key={index}>
                                 {line} <br />
                             </React.Fragment>
                             ))}
-                        </body>
+                        </div>
                     </div>
                 </div>
             </div>
-        </ReactPageScroller>
+        </div>
     );
 }
 
