@@ -1,7 +1,14 @@
 
 function ContactPage() {
+
+  const container = {
+    display: "flex",
+    justifyContent: "center",
+};
+
+
   return (
-    <div>
+    <div style={container}>
       This is the contact page.
     </div>
   );
