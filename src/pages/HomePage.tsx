@@ -113,18 +113,18 @@ function HomePage() {
     <div style={flexBoxDisplay}>
       <div><Toaster/></div>
       <div style={textBoxDisplay}>
-        <header>
-          <TypeAnimation 
-          sequence={greetingSequence}
-          speed={30}
-          repeat={Infinity}
-          style={headerStyles}/>
-        </header>
-        <body style={bodyStyles}>
-          My name is Kenny.
-          <br/>
-          I am a 4th year student at the University of Toronto studying Computer Science.
-        </body>
+      <header>
+        <TypeAnimation 
+        sequence={greetingSequence}
+        speed={30}
+        repeat={Infinity}
+        style={headerStyles}/>
+      </header>
+      <body style={bodyStyles}>
+        My name is Kenny.
+        <br/>
+        I am a 4th year student at the University of Toronto studying Computer Science.
+      </body>
       </div>
       <div style={profilePhotoAndLogosDiv}>
         <img src={profile_photo} style={profilePhotoStyles}/>

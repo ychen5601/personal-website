@@ -2,29 +2,21 @@ import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { Button } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function TopNav() {
 
     let navigate = useNavigate();
-    let location = useLocation();
 
     const appBarStyle = {
         backgroundColor: '#ced2ba',
-        border: 0,
-    };
-
-    const fixedAppBarStyle = {
-        backgroundColor: 'rgba(0, 0, 0, 0)',
         borderBottom: 'none',
         border: 0,
-        position: 'fixed',
-        zIndex: 999,
     };
 
     const buttonStyle = {
         color: 'rgb(53, 71, 43)',
-        backgroundColor:'rgba(0, 0, 0, 0)',
+        backgroundColor:'#ced2ba',
         padding: 25,
     };
 
@@ -42,11 +34,11 @@ function TopNav() {
 
     const [isHomeHovered, setIsHomeHovered] = useState(false);
     const [isProjectsHovered, setIsProjectsHovered] = useState(false);
-    const [isAboutHovered, setIsAboutHovered] = useState(false);
+    const [isContactHovered, setIsContactHovered] = useState(false);
 
     const homeStyle = isHomeHovered ? hoverStyle : buttonStyle;
     const projectsStyle = isProjectsHovered ? hoverStyle : buttonStyle;
-    const AboutStyle = isAboutHovered ? hoverStyle : buttonStyle;
+    const ContactStyle = isContactHovered ? hoverStyle : buttonStyle;
 
     const handleHomeMouseMove = () => {
         setIsHomeHovered(!isHomeHovered);
@@ -63,17 +55,15 @@ function TopNav() {
     const handleProjectsClick = () => {
         navigate('/projects');}
 
-    const handleAboutMouseMove = () => {
-        setIsAboutHovered(!isAboutHovered);
+    const handleContactMouseMove = () => {
+        setIsContactHovered(!isContactHovered);
     }
-
-    const handleAboutClick = () => {navigate('/about');}
 
     const handleContactClick = () => {navigate('/contact');}
     
 
     return (
-      <AppBar position='static' style={location.pathname == "/about" ? fixedAppBarStyle : appBarStyle} elevation={0}>
+      <AppBar position='static' style={appBarStyle} elevation={0}>
         <Toolbar style={centerToolbarStyle}>
             <Button 
                 style={homeStyle}
@@ -91,14 +81,14 @@ function TopNav() {
             >
                 Projects
             </Button>
-            <Button
-                style={AboutStyle}
-                onMouseEnter={handleAboutMouseMove}
-                onMouseLeave={handleAboutMouseMove}
-                onClick={handleAboutClick}
+            {/* <Button
+                style={ContactStyle}
+                onMouseEnter={handleContactMouseMove}
+                onMouseLeave={handleContactMouseMove}
+                onClick={handleContactClick}
             >
-                About
-            </Button>
+                Contact
+            </Button> */}
         </Toolbar>
       </AppBar>
     );
