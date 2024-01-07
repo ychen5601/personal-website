@@ -11,6 +11,8 @@ function AboutPage() {
     };
 
     const pageStyle = {
+        marginRight: "30vw",
+        marginLeft: "30vw",
         height: "100vh",
         paddingTop: 76,
     };
